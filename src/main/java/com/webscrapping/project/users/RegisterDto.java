@@ -1,4 +1,4 @@
-package com.example.demo.users;
+package com.webscrapping.project.users;
 
 import jakarta.validation.constraints.NotBlank;
 

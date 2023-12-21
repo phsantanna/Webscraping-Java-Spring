@@ -1,6 +1,6 @@
-package com.example.demo.services;
+package com.webscrapping.project.services;
 
-import com.example.demo.repository.UserRepository;
+import com.webscrapping.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.webscrapping.project.controller;
 
 
-import com.example.demo.infra.security.TokenService;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.users.AuthenticationDto;
-import com.example.demo.users.LoginResponseDTO;
-import com.example.demo.users.RegisterDto;
-import com.example.demo.users.Users;
+import com.webscrapping.project.infra.security.TokenService;
+import com.webscrapping.project.repository.UserRepository;
+import com.webscrapping.project.users.AuthenticationDto;
+import com.webscrapping.project.users.LoginResponseDTO;
+import com.webscrapping.project.users.RegisterDto;
+import com.webscrapping.project.users.Users;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

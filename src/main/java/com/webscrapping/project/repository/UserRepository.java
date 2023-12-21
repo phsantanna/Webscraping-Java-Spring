@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.webscrapping.project.repository;
 
-import com.example.demo.users.Users;
+import com.webscrapping.project.users.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

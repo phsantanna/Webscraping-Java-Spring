@@ -1,8 +1,7 @@
-package com.example.demo.services;
+package com.webscrapping.project.services;
 
-import com.example.demo.product.Produtos;
-import com.example.demo.product.ProdutosDTO;
-import com.example.demo.repository.ProdutosRepository;
+import com.webscrapping.project.product.Produtos;
+import com.webscrapping.project.repository.ProdutosRepository;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

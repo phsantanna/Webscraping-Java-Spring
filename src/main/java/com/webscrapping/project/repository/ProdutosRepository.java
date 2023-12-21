@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.webscrapping.project.repository;
 
-import com.example.demo.product.Produtos;
+import com.webscrapping.project.product.Produtos;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProdutosRepository extends JpaRepository<Produtos, Long> {

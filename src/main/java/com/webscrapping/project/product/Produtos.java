@@ -1,4 +1,4 @@
-package com.example.demo.product;
+package com.webscrapping.project.product;
 
 
 import com.example.demo.*;

@@ -1,7 +1,7 @@
-package com.example.demo.infra.security;
+package com.webscrapping.project.infra.security;
 
 
-import com.example.demo.repository.UserRepository;
+import com.webscrapping.project.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,10 +1,10 @@
-package com.example.demo.controller;
+package com.webscrapping.project.controller;
 
 
 
-import com.example.demo.product.Produtos;
-import com.example.demo.repository.ProdutosRepository;
-import com.example.demo.services.ProdutosService;
+import com.webscrapping.project.product.Produtos;
+import com.webscrapping.project.repository.ProdutosRepository;
+import com.webscrapping.project.services.ProdutosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

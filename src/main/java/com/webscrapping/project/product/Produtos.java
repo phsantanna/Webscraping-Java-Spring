@@ -1,7 +1,4 @@
 package com.webscrapping.project.product;
-
-
-import com.example.demo.*;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -24,8 +24,8 @@ public class ProdutosController {
 
 
 
-    @PostMapping("/scrape/{nomeProduto}")
-    public ResponseEntity iniciarBusca(@PathVariable String nomeProduto){
+    @PostMapping("/scrape/{nomeproduto}")
+    public ResponseEntity iniciarBusca(@PathVariable("nomeproduto") String nomeProduto){
         produtosService.buscarProdutos(nomeProduto);
         return ResponseEntity.ok().build();
     }

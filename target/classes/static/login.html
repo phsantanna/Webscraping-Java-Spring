@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<h2>Login</h2>
+<form id="loginForm" onsubmit="submitForm(); return false;">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="login" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="senha" required><br>
+
+    <button type="submit">Logar</button>
+</form>
+
+<div id="successMessage" style="display: none;">
+    <p>Login bem-sucedido!</p>
+    <div id="tokenContainer"></div>
+</div>
+
+<script>
+    function submitForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var data = {
+            login: username,
+            senha: password
+        };
+
+        fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Invalid credentials');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Exibir mensagem de sucesso
+                document.getElementById("successMessage").style.display = "block";
+
+                // Exibir o token no contêiner
+                var tokenContainer = document.getElementById("tokenContainer");
+                tokenContainer.innerHTML = "<p>Token: " + data.token + "</p>";
+            })
+            .catch(error => {
+                // Lógica de tratamento de erro
+                console.error(error);
+            });
+    }
+</script>
+</body>
+</html>

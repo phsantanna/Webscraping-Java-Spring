@@ -20,32 +20,25 @@ public class ProdutosService {
     private ProdutosRepository produtosRepository;
 
     public void buscarProdutos(String nomeProduto) {
-        // Especifique o caminho completo para o msedgedriver.exe
         System.setProperty("webdriver.edge.driver", "C:\\Users\\psant\\OneDrive\\Área de Trabalho\\demo1\\edgedriver\\msedgedriver.exe");
 
-        // Inicializar o WebDriver
         WebDriver driver = new EdgeDriver();
 
         try {
             String url = "https://www.kabum.com.br/busca/" + nomeProduto;
             driver.get(url);
 
-            // Esperar um pouco para garantir que a página foi carregada
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".productCard")));
 
-            // Encontrar todos os elementos de nameCard
             for (WebElement nameCard : driver.findElements(By.cssSelector(".productCard"))) {
                 try {
-                    // Verificar se a classe ".oldPriceCard" está presente na div
                     boolean hasOldPrice = !nameCard.findElements(By.cssSelector(".oldPriceCard")).isEmpty();
 
                     if (hasOldPrice) {
-                        // Verificar se a div .oldPriceCard contém algum texto (um preço antigo)
                         WebElement oldPriceElement = nameCard.findElement(By.cssSelector(".oldPriceCard"));
 
                         if (!oldPriceElement.getText().isEmpty()) {
-                            // A div .oldPriceCard tem um preço antigo, armazenar as informações do produto
                             WebElement linkElement = nameCard.findElement(By.cssSelector("a.productLink"));
                             String produtoLink = linkElement.getAttribute("href");
 
@@ -69,7 +62,6 @@ public class ProdutosService {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            // Fechar o navegador
             driver.quit();
         }
     }

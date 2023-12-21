@@ -14,5 +14,5 @@
 ### 3. Após o cadastro efetuado, siga para https://localhost:8080/login.html e faça o login com os dados criados.
 ### 4. Uma mensagem de Login Bem-Sucesido irá aparecer na tela junto com um token (o token é mostrado na tela, porém, não é uma boa prática, fiz apenas para capturar o token de forma rápida e realizar a requisição com um Bearer Token). Fiz uma página html simples sem CSS apenas para ter algo mais visual e rápido.
 ### 5. Utilizando a sua ferramente de preferência (Insomnia ou Postman), você pode realizar uma requisição post através da url https://localhost:8080/scrape/nome-do-produto, exemplo: https://localhost:8080/scrape/memoria-ram ou https://localhost:8080/scrape/memoria ram. Não há problema caso haja espaço no nome do produto, a busca será realizada de forma correta.
-### 6. O produto escolhido na requisição, caso em promoção, será armazenado no banco de dados no formaato Id, Nome, Preço, Url.
+### 6. O produto escolhido na requisição, caso em promoção, será armazenado no banco de dados no formato Id, Nome, Preço, Url.
 ### 7. Caso queira recebê-los através de um JSON na sua ferramenta (Insomnia ou Postman) sem precisar acessar o banco de dados e realizar um select de forma manual, faça uma requisição GET através da url https://localhost:8080/scrape/listarprodutos.

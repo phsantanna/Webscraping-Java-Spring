@@ -87,7 +87,6 @@ public class ProdutosService {
                         String produtoNome = nameCard.findElement(By.cssSelector(".nameCard")).getText();
                         String precoProduto = nameCard.findElement(By.cssSelector(".priceCard")).getText();
 
-                        // Verifica se o produto já existe no banco de dados antes de salvar
                         if (!produtoJaExiste(produtoNome, precoProduto, produtoLink)) {
                             System.out.println("Nome do Monitor: " + produtoNome);
                             System.out.println("Link do Produto: " + produtoLink);
@@ -100,9 +99,8 @@ public class ProdutosService {
                     }
                 }
             } catch (StaleElementReferenceException e) {
-                // Elemento tornou-se obsoleto, atualize a lista de elementos e continue
                 productCards = driver.findElements(By.cssSelector(".productCard"));
-                i--;  // Reduza o índice para processar o mesmo índice novamente
+                i--; 
             } catch (org.openqa.selenium.NoSuchElementException e) {
                 System.out.println("Div contendo o produto não encontrada");
             }
@@ -122,7 +120,6 @@ public class ProdutosService {
         System.out.println("Em Promoção");
         System.out.println();
 
-        // Verifique se o produto já existe no banco de dados antes de salvar
         if (!produtoJaExiste(produtoNome, precoProduto, produtoLink)) {
             Produtos produtos = new Produtos(produtoNome, precoProduto, produtoLink);
             produtosRepository.save(produtos);
@@ -130,7 +127,6 @@ public class ProdutosService {
     }
 
     private boolean produtoJaExiste(String produtoNome, String precoProduto, String produtoLink) {
-        // Verifique se um produto com as mesmas características já existe no banco de dados
         Produtos existingProduct = produtosRepository.findByNomeProdutoAndPrecoProdutoAndUrlProduto(
                 produtoNome, precoProduto, produtoLink);
 

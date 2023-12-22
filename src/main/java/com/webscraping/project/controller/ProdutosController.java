@@ -23,13 +23,13 @@ public class ProdutosController {
 
 
     @PostMapping("/scrape/{nomeproduto}/{pagina}")
-    public ResponseEntity iniciarBusca(@PathVariable("nomeproduto") String nomeProduto,@PathVariable("pagina") Integer pagina) {
+    public ResponseEntity iniciarBusca(@PathVariable(value = "nomeproduto") String nomeProduto,@PathVariable(value = "pagina") Integer pagina) {
         produtosService.buscarProdutos(nomeProduto, pagina);
         return ResponseEntity.ok().build();
     }
 
 
-    @GetMapping("/scrape/listarprodutos")
+    @GetMapping("/scrape/produtos/listar")
     public ResponseEntity<List<Produtos>> listarProdutos() {
         List<Produtos> produtos = produtosRepository.findAll();
         if (!produtos.isEmpty()) {
@@ -40,13 +40,18 @@ public class ProdutosController {
     }
 
 
-    @GetMapping("/scrape/{nomeproduto}")
-    public ResponseEntity<List<Produtos>> listarProdutoDesejado(@PathVariable("nomeproduto") String nomeProduto) {
+    @GetMapping("/scrape/produtos/{nomeproduto}")
+    public ResponseEntity<List<Produtos>> listarProdutoDesejado(@PathVariable(value = "nomeproduto") String nomeProduto) {
         List<Produtos> produtos = produtosRepository.findByNomeContainingIgnoreCase(nomeProduto);
         if (!produtos.isEmpty()) {
             return new ResponseEntity<>(produtos, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+    }
+    @DeleteMapping("/scrape/produtos/{id}")
+    public ResponseEntity deletarProduto(@PathVariable("id") Long id){
+            produtosRepository.deleteById(id);
+            return ResponseEntity.ok().build();
     }
 }

@@ -22,9 +22,9 @@ public class ProdutosController {
     private ProdutosService produtosService;
 
 
-    @PostMapping("/scrape/{nomeproduto}")
-    public ResponseEntity iniciarBusca(@PathVariable("nomeproduto") String nomeProduto) {
-        produtosService.buscarProdutos(nomeProduto);
+    @PostMapping("/scrape/{nomeproduto}/{pagina}")
+    public ResponseEntity iniciarBusca(@PathVariable("nomeproduto") String nomeProduto,@PathVariable("pagina") Integer pagina) {
+        produtosService.buscarProdutos(nomeProduto, pagina);
         return ResponseEntity.ok().build();
     }
 

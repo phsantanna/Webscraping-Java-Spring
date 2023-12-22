@@ -16,3 +16,5 @@
 ### 5. Utilizando a sua ferramente de preferência (Insomnia ou Postman), você pode realizar uma requisição post através da url https://localhost:8080/scrape/nome-do-produto, exemplo: https://localhost:8080/scrape/memoria-ram ou https://localhost:8080/scrape/memoria ram. Não há problema caso haja espaço no nome do produto, a busca será realizada de forma correta.
 ### 6. O produto escolhido na requisição, caso em promoção, será armazenado no banco de dados no formato Id, Nome, Preço, Url.
 ### 7. Caso queira recebê-los através de um JSON na sua ferramenta (Insomnia ou Postman) sem precisar acessar o banco de dados e realizar um select de forma manual, faça uma requisição GET através da url https://localhost:8080/scrape/listarprodutos.
+### ** Você pode alterar a url que deseja buscar o produto desejado, porém, terá que encontrar as classes dentro do html da página **
+### ** As configurações de busca ficam dentro do ProdutosService **

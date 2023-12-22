@@ -100,7 +100,7 @@ public class ProdutosService {
                 }
             } catch (StaleElementReferenceException e) {
                 productCards = driver.findElements(By.cssSelector(".productCard"));
-                i--; 
+                i--;
             } catch (org.openqa.selenium.NoSuchElementException e) {
                 System.out.println("Div contendo o produto não encontrada");
             }

@@ -9,9 +9,8 @@ import java.util.List;
 public interface ProdutosRepository extends JpaRepository<Produtos, Long> {
 
 
-    @Query("SELECT p FROM produtos p WHERE LOWER(p.nomeProduto) LIKE %:nomeproduto%")
-    List<Produtos> findByNomeContainingIgnoreCase(String nomeproduto);
-
+    @Query(value = "SELECT * FROM tb_produtos WHERE unaccent(lower(nome_produto)) LIKE unaccent(lower(concat('%', :nomeProduto, '%')))", nativeQuery = true)
+    List<Produtos> findByNomeContainingIgnoreCase(String nomeProduto);
 
     Produtos findByNomeProdutoAndPrecoProdutoAndUrlProduto(String produtoNome, String precoProduto, String produtoLink);
 }

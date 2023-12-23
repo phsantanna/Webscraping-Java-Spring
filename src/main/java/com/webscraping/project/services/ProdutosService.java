@@ -2,7 +2,6 @@ package com.webscraping.project.services;
 
 import com.webscraping.project.product.Produtos;
 import com.webscraping.project.repository.ProdutosRepository;
-import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -12,6 +11,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -25,6 +26,7 @@ public class ProdutosService {
 
     private WebDriver driver;
     private WebDriverWait wait;
+
 
     public void setupWebDriver() {
         System.setProperty("webdriver.edge.driver", "C:\\Users\\psant\\OneDrive\\Área de Trabalho\\demo1\\edgedriver\\msedgedriver.exe");
@@ -136,5 +138,9 @@ public class ProdutosService {
     private void irParaProximaPagina() {
         WebElement nextPageButton = driver.findElement(By.cssSelector(".pagination .next"));
         nextPageButton.click();
+    }
+
+    public Page<Produtos> listarProdutos(Pageable pageable){
+        return produtosRepository.findAll(pageable);
     }
 }
